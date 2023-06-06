@@ -1,72 +1,62 @@
 import javax.imageio.IIOException;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 public class Main {
-    public static void main(String[] args) {
 
-        StringBuilder log = new StringBuilder();
-
-        File src = new File("C:/Games/src");
-        if (src.mkdir())
-            System.out.println("Директория успешно создана");
-        else
-            System.out.println("Что-то пошло не так");
-
-        File res = new File("C:/Games/res");
-        if (res.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File file = new File("C:/Games/savegames");
-        if (file.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File temp = new File("C:/Games/temp");
-        if (temp.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File main = new File("C:/Games/src/main");
-        if (main.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File test = new File("C:/Games/src/test");
-        if (test.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File drawables = new File("C:/Games/res/drawables");
-        if (drawables.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File vectors = new File("C:/Games/res/vectors");
-        if (vectors.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File icons = new File("C:/Games/res/icons");
-        if (icons.mkdir())
-            System.out.println("Директория успешно создана");
-
-        File mainFile = new File ("C/Games/main/Main.java");
-        try {
-            if (mainFile.createNewFile())
-                System.out.println("Файл успешно создан");
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+    public static void dirCreate (String dirPath, StringBuilder log) {
+        File dir = new File(dirPath);
+        Date date = new Date();
+        if (dir.mkdir()) {
+            log.append( date + " : Каталог " + dirPath + " успешно создан" + "\n");
+        } else {
+            log.append(date + " : Каталог " + dirPath + " не создан" + "\n");
         }
+    }
 
-        File utilsFile = new File ("C/Games/main/Utils.java");
-        try {
-            if (utilsFile.createNewFile())
-                System.out.println("Файл успешно создан");
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+    public static void fileCreate (String dirPath, String fileName, StringBuilder log) {
+        File file = new File(dirPath, fileName);
+        Date date = new Date();
 
-        File tempFile = new File ("C/Games/temp/temp.txt");
         try {
-            if (tempFile.createNewFile())
-                System.out.println("Файл успешно создан");
+            if (file.createNewFile()) {
+                log.append( date + " : Файл " + fileName + " успешно создан" + "\n");
+            } else {
+                log.append( date + " : Файл " + fileName + " не создан" + "\n");
+            }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
-}
+
+    public static void main(String[] args) {
+
+        StringBuilder log = new StringBuilder();
+
+        dirCreate("Games", log);
+        dirCreate("Games/src", log);
+        dirCreate("Games/res", log);
+        dirCreate("Games/savegames", log);
+        dirCreate("Games/temp", log);
+        dirCreate("Games/src/main", log);
+        dirCreate("Games/src/test", log);
+        dirCreate("Games/res/drawables", log);
+        dirCreate("Games/res/vectors", log);
+        dirCreate("Games/res/icons", log);
+
+        fileCreate("Games/src/main", "Main.java" , log);
+        fileCreate("Games/src/main", "Utils.java" , log);
+        fileCreate("Games/temp", "temp.txt" , log);
+
+        try (FileWriter writer = new FileWriter ("Games/temp/temp.txt", false)) {
+            writer.write (log.toString());
+            writer.flush();
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
+
+        }
+        }
+
