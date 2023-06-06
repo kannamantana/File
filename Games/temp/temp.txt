@@ -1,0 +1,13 @@
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/src успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/res успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/savegames успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/temp успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/src/main успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/src/test успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/res/drawables успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/res/vectors успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Каталог Games/res/icons успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Файл Main.java успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Файл Utils.java успешно создан
+Tue Jun 06 19:02:17 GMT+07:00 2023 : Файл temp.txt успешно создан
